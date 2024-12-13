@@ -23,17 +23,18 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Properties;
 
+import net.neoforged.fml.loading.FMLPaths;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.fabricmc.api.ClientModInitializer;
+/* import net.fabricmc.api.ClientModInitializer; */
 import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
 import net.fabricmc.fabric.api.util.TriState;
 import net.fabricmc.fabric.impl.client.indigo.renderer.IndigoRenderer;
 import net.fabricmc.fabric.impl.client.indigo.renderer.aocalc.AoConfig;
-import net.fabricmc.loader.api.FabricLoader;
+/* import net.fabricmc.loader.api.FabricLoader; */
 
-public class Indigo implements ClientModInitializer {
+public class Indigo /* implements ClientModInitializer */ {
 	public static final boolean ALWAYS_TESSELATE_INDIGO;
 	public static final boolean ENSURE_VERTEX_FORMAT_COMPATIBILITY;
 	public static final AoConfig AMBIENT_OCCLUSION_MODE;
@@ -95,7 +96,8 @@ public class Indigo implements ClientModInitializer {
 	}
 
 	static {
-		File configDir = FabricLoader.getInstance().getConfigDir().resolve("fabric").toFile();
+		/* File configDir = FabricLoader.getInstance().getConfigDir().resolve("fabric").toFile(); */
+		File configDir = FMLPaths.CONFIGDIR.get().resolve("fabric").toFile();
 
 		if (!configDir.exists()) {
 			if (!configDir.mkdir()) {
@@ -133,7 +135,7 @@ public class Indigo implements ClientModInitializer {
 		}
 	}
 
-	@Override
+	/* @Override */
 	public void onInitializeClient() {
 		if (IndigoMixinConfigPlugin.shouldApplyIndigo()) {
 			LOGGER.info("[Indigo] Registering Indigo renderer!");
